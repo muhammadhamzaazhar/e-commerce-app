@@ -1,9 +1,11 @@
 .collection-item {
-    width: 22%;
+    // width: 22%;
+    width: 22vw; //The main difference between percent and view width is that 22 percent as a width is actually just 22 percent of the containing divs with some of our containing divs with is 100 pixel well are with would be 22 pixels because it was 22 percent of that but using view with what this clarifies is that I want this component to be 22 percent of the width of the actual window.
     display: flex;
     flex-direction: column;
     height: 350px;
     align-items: center;
+    position: relative;
 
     .image {
         width: 100%;
@@ -11,6 +13,25 @@
         background-size: cover;
         background-position: center;
         margin-bottom: 5px;
+    }
+
+    .custom-button {
+        width: 80%;
+        opacity: 0.7;
+        position: absolute;
+        top: 255px;
+        display: none;
+    }
+
+    &:hover {
+        .image {
+            opacity: 0.8;
+        }
+
+        .custom-button {
+            opacity: 0.85;
+            display: flex;
+        }
     }
 
     .collection-footer {

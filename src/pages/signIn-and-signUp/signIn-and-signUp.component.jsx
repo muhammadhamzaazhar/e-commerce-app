@@ -10,6 +10,6 @@ const SignInAndSignUpPage = () => (
         <SignIn />
         <SignUp />
     </div>
-)
+);
 
 export default SignInAndSignUpPage;
