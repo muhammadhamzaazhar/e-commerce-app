@@ -20,4 +20,3 @@ const MenuItem = ({ title, imageUrl, size, linkUrl }) => {
     )
 }
 export default MenuItem;
-// export default withRouter(MenuItem); We will pass MenuItem component into  withRouter and withRouter will return a super-powered MenuItem component with access to history, location, match props 

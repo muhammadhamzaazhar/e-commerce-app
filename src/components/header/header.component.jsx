@@ -30,29 +30,14 @@ const Header = ({ currentUser, hidden }) => (
             <CartIcon />
         </div>
         {
-            hidden ? null : <CartDropdown /> //if hidden is true renders nothing, if hidden is false renders CartDropdown component
+            hidden ? null : <CartDropdown />
         }
     </div>
 );
 
-// const mapStateToProps = state => ({ //state object, this state is the root reducer.
-//     currentUser: state.user.currentUser
-// })
-
-// const mapStateToProps = ({ user: { currentUser }, cart: { hidden } }) => ({ //state object, this state is the root reducer.
-//     currentUser,
-//     hidden
-// })
-
-// const mapStateToProps = (state) => ({ //state object, this state is the root reducer.
-//     currentUser: selectCurrentUser(state),
-//     hidden: selectCartHidden(state)
-// })
-
 const mapStateToProps = createStructuredSelector({
-    //createStructureSelector will automatically pass are top level state that we get as our mapStateToProps into each subsequent selector
     currentUser: selectCurrentUser,
     hidden: selectCartHidden
 })
 
-export default connect(mapStateToProps)(Header); //connect() is a higher order component, H.C are just functions that take components as arguments and then return a new souped up component.
+export default connect(mapStateToProps)(Header); 

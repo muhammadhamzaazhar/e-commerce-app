@@ -14,18 +14,16 @@ const firebaseConfig = {
 
 firebase.initializeApp(firebaseConfig);
 
-//When we signin we get a user object, we can see that object in console. The function below allows to take that user auth object that we get from authentication library and stores that in firebase database 
 export const createUserProfileDocument = async (userAuth, additionalData) => {
     if (!userAuth) return;
 
     const userRef = firestore.doc(`users/${userAuth.uid}`)
-    const snapShot = await userRef.get() //We get the snapshotObject from the referenceObject using the .get() method 
-    // console.log(snapShot) //snapShot represents the data
-    if (!snapShot.exists) { //The documentSnapshot object allows us to check if a document exists at this query using the .exists property which returns a boolean.
+    const snapShot = await userRef.get()
+    if (!snapShot.exists) {
         const { displayName, email } = userAuth;
         const createdAt = new Date();
         try {
-            await userRef.set({ //set() is the create method
+            await userRef.set({
                 displayName,
                 email,
                 createdAt,
@@ -43,7 +41,6 @@ export const firestore = firebase.firestore();
 
 const provider = new firebase.auth.GoogleAuthProvider();
 
-//setCustomParameters() --> https://developers.google.com/identity/openid-connect/openid-connect#authenticationuriparameters
 provider.setCustomParameters({
     'prompt': 'select_account'
 });

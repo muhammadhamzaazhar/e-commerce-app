@@ -7,9 +7,6 @@ import { selectCollection } from "../../redux/shop/shop.selectors";
 import './collection.styles.scss';
 
 const CollectionPage = ({ collection }) => {
-    // console.log(collection)
-    // const params = useParams();
-    // collectionId.id = params.collectionId;
     const { title, items } = collection;
 
     return (
@@ -24,9 +21,8 @@ const CollectionPage = ({ collection }) => {
     )
 }
 
-const mapStateToProps = (state, ownProps) => ({ //The first parameter we know is the state which is our overall reduce state from the top right.
-    //The second argument is actually called own props which is the props of the component that we're wrapping in our connect()
-    collection: selectCollection(ownProps.collectionId)(state) //this is necessary b/c unlike other selectors, this selector needs a part of the state depending on the URL parameter 
+const mapStateToProps = (state, ownProps) => ({
+    collection: selectCollection(ownProps.collectionId)(state)
 })
 
 export default connect(mapStateToProps)(CollectionPage);

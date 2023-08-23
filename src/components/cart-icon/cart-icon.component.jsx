@@ -15,14 +15,6 @@ const CartIcon = ({ toggleCardHidden, itemCount }) => (
     </div>
 )
 
-// const mapStateToProps = ({ cart: { cartItems } }) => ({
-//     itemCount: cartItems.reduce((accumulatedQuantity, cartItem) => accumulatedQuantity + cartItem.quantity, 0)
-// })
-
-// const mapStateToProps = (state) => ({
-//     itemCount: selectCartItemsCount(state)
-// })
-
 const mapStateToProps = createStructuredSelector({
     itemCount: selectCartItemsCount
 })

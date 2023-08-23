@@ -1,7 +1,5 @@
 .collection-item {
-    // width: 22%;
-    width: 22vw; //The main difference between percent and view width is that 22 percent as a width is actually just 22 percent of the containing divs with some of our containing divs with is 100 pixel well are with would be 22 pixels because it was 22 percent of that but using view with what this clarifies is that I want this component to be 22 percent of the width of the actual window.
-    display: flex;
+    width: 22vw;
     flex-direction: column;
     height: 350px;
     align-items: center;
